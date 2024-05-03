@@ -22,8 +22,6 @@ class TokenModel {
   }
 
   public async create(token: string): Promise<Number> {
-    if (!token) throw new Error("Please provide valid token.");
-
     const query = this.db.prepare("INSERT INTO tokens (token) VALUES (?);");
     await query.run(token);
 
@@ -31,8 +29,6 @@ class TokenModel {
       "SELECT last_insert_rowid() as id;"
     );
     const result_id = await (<{ id: number }>last_insert_rowid.get());
-
-    console.log(typeof result_id.id);
 
     return result_id.id;
   }
