@@ -1,5 +1,5 @@
 import { beforeAll, expect, test } from "bun:test";
-import { ReaderModel } from "../models/ReaderModel";
+import { ReaderModel } from "../models/Reader.model";
 
 beforeAll(async () => {
   // Clear the database

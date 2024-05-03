@@ -1,5 +1,5 @@
 import { beforeAll, expect, test } from "bun:test";
-import { BookModel } from "../models/BookModel.ts";
+import { BookModel } from "../models/Book.model.ts";
 
 beforeAll(async () => {
   // Clear the database
@@ -49,3 +49,4 @@ test("delete", async () => {
   const book = await bookModel.read(1);
   expect(book).toBeNull();
 });
+

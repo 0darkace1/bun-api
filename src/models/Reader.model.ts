@@ -1,6 +1,6 @@
 // ReaderModel.ts
 import { Database } from "bun:sqlite";
-import { Reader } from "../entities/Reader.ts";
+import { Reader } from "../entities/Reader";
 
 class ReaderModel {
   db: Database;
