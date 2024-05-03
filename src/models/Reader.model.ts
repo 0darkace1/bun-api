@@ -6,7 +6,7 @@ class ReaderModel {
   db: Database;
 
   constructor() {
-    this.db = new Database("../bun_api.sqlite");
+    this.db = new Database("./bun_api.sqlite");
     this.createTable();
   }
 
