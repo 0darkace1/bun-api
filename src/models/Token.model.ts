@@ -6,16 +6,17 @@ class TokenModel {
 
   constructor() {
     this.db = new Database("./bun_api.sqlite");
+    this.createTable();
   }
 
   public async deleteAll(): Promise<void> {
     let query = this.db.prepare("DELETE FROM tokens;");
-    query.run();
+    await query.run();
 
     let query2 = this.db.prepare(
       "DELETE FROM sqlite_sequence WHERE name = 'tokens';"
     );
-    query2.run();
+    await query2.run();
 
     return Promise.resolve();
   }
@@ -45,6 +46,16 @@ class TokenModel {
     }
 
     return true;
+  }
+
+  private async createTable() {
+    const query = this.db.prepare(
+      `CREATE TABLE IF NOT EXISTS tokens (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        token TEXT NOT NULL,
+      );`
+    );
+    await query.run();
   }
 }
 

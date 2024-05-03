@@ -11,12 +11,12 @@ class BookModel {
 
   public async deleteAll(): Promise<void> {
     let query = this.db.prepare("DELETE FROM books;");
-    query.run();
+    await query.run();
 
     let query2 = this.db.prepare(
       "DELETE FROM sqlite_sequence WHERE name = 'books';"
     );
-    query2.run();
+    await query2.run();
 
     return Promise.resolve();
   }
