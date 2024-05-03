@@ -52,7 +52,7 @@ class TokenModel {
     const query = this.db.prepare(
       `CREATE TABLE IF NOT EXISTS tokens (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        token TEXT NOT NULL,
+        token TEXT NOT NULL
       );`
     );
     await query.run();
